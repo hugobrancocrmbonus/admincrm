@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giftback Admin — protótipo (design system · detalhes)</title>
+    <link rel="stylesheet" href="assets/css/prototype-theme.css" />
+  </head>
+  <body class="gb-prototype">
+    <div class="header navbar navbar-fixed-top" role="banner">
+      <div class="header-inner">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown user">
+            <a class="dropdown-toggle" href="#" aria-expanded="false" aria-haspopup="true">
+              <span class="avatar" aria-hidden="true"></span>
+              <span class="username">Utilizador (demo)</span>
+              <b class="caret"></b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-container">
+      <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse" id="page-sidebar">
+          <div class="page-sidebar-toolbar">
+            <button type="button" class="sidebar-toggler" aria-controls="page-sidebar" aria-expanded="true" title="Recolher menu">
+              <span class="sidebar-toggler-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Alternar menu lateral</span>
+            </button>
+          </div>
+          <div class="slimScrollDiv">
+            <ul class="page-sidebar-menu">
+              <li class="start active">
+                <a href="./design-system-crud.html">
+                  <i class="menu-item-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+                      />
+                    </svg>
+                  </i>
+                  <span class="title" data-sidebar-label>Exemplos</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content-wrapper">
+        <div id="design-system-detail-content">
+          <div class="page-content">
+            <h1 class="page-title">Detalhes do exemplo</h1>
+            <p id="detail-example-label" class="text-muted" style="margin: -4px 0 16px; font-size: 15px; color: var(--crm-gray-600, #666)"></p>
+
+            <nav class="page-breadcrumb" aria-label="Navegação em trilha">
+              <a href="/sistema/dashboard" class="page-breadcrumb__home" aria-label="Início">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+              </a>
+              <span class="sep">›</span>
+              <a href="/sistema/dashboard">Tela inicial</a>
+              <span class="sep">›</span>
+              <a href="./design-system-crud.html">Exemplos</a>
+              <span class="sep">›</span>
+              <span class="is-current" aria-current="page">Detalhe</span>
+            </nav>
+
+            <p style="margin: 0 0 20px; color: var(--crm-gray-600, #666); font-size: 14px">
+              Página de detalhe com abas: cada separador agrupa informação por tema (identificação, configuração e histórico).
+            </p>
+
+            <div class="row profile">
+              <div class="col-md-12">
+                <div class="tabbable tabbable-custom tabbable-full-width">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li class="active" role="presentation">
+                      <a id="tab-identificacao" href="#tab-pane-identificacao" role="tab" aria-selected="true">Identificação</a>
+                    </li>
+                    <li role="presentation">
+                      <a id="tab-configuracao" href="#tab-pane-configuracao" role="tab" aria-selected="false">Configuração</a>
+                    </li>
+                    <li role="presentation">
+                      <a id="tab-auditoria" href="#tab-pane-auditoria" role="tab" aria-selected="false">Histórico</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div
+                      id="tab-pane-identificacao"
+                      class="tab-pane active"
+                      role="tabpanel"
+                      aria-labelledby="tab-identificacao"
+                      aria-hidden="false"
+                    >
+                      <div class="form-group has-feedback">
+                        <label for="detail-code">Código</label>
+                        <input type="text" class="form-control" id="detail-code" value="EX-001" readonly />
+                      </div>
+                      <div class="form-group has-feedback">
+                        <label for="detail-title">Título</label>
+                        <input type="text" class="form-control" id="detail-title" value="Registo de demonstração" readonly />
+                      </div>
+                    </div>
+                    <div
+                      id="tab-pane-configuracao"
+                      class="tab-pane"
+                      role="tabpanel"
+                      aria-labelledby="tab-configuracao"
+                      aria-hidden="true"
+                    >
+                      <p style="margin: 0 0 12px">
+                        <strong>Tema:</strong> parâmetros e regras aplicáveis a este registo.
+                      </p>
+                      <ul style="margin: 0; padding-left: 1.2em">
+                        <li>Notificações: ativas</li>
+                        <li>Visibilidade: todos os perfis</li>
+                      </ul>
+                    </div>
+                    <div
+                      id="tab-pane-auditoria"
+                      class="tab-pane"
+                      role="tabpanel"
+                      aria-labelledby="tab-auditoria"
+                      aria-hidden="true"
+                    >
+                      <p style="margin: 0 0 8px"><strong>Última alteração</strong></p>
+                      <p style="margin: 0; color: var(--crm-gray-600, #666)">17/04/2026 — utilizador demo</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 24px">
+              <a href="./design-system-crud.html" class="btn btn-default">← Voltar à lista</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/prototype-sidebar.js"></script>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get("id");
+        var label = document.getElementById("detail-example-label");
+        if (label && id) {
+          label.textContent = "Exemplo " + id;
+        } else if (label) {
+          label.textContent = "Sem registo selecionado (abra a partir da lista).";
+        }
+      })();
+
+      (function () {
+        var tabs = document.querySelectorAll("#design-system-detail-content .nav-tabs a[href^='#tab-pane-']");
+        var panes = document.querySelectorAll("#design-system-detail-content .tab-content .tab-pane");
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function (e) {
+            e.preventDefault();
+            var targetId = tab.getAttribute("href").slice(1);
+            tabs.forEach(function (t) {
+              t.parentElement.classList.remove("active");
+              t.setAttribute("aria-selected", "false");
+            });
+            tab.parentElement.classList.add("active");
+            tab.setAttribute("aria-selected", "true");
+            panes.forEach(function (p) {
+              var isTarget = p.id === targetId;
+              p.classList.toggle("active", isTarget);
+              p.setAttribute("aria-hidden", isTarget ? "false" : "true");
+            });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

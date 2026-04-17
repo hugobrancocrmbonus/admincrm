@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assets — Giftback Admin protótipo</title>
+    <link rel="stylesheet" href="css/prototype-theme.css" />
+    <style>
+      .assets-max {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .assets-lead {
+        margin: 0 0 20px;
+        font-size: 15px;
+        color: var(--crm-gray-600, #666);
+        line-height: 1.55;
+      }
+      .assets-block {
+        margin-bottom: 32px;
+      }
+      .assets-block h2 {
+        margin: 0 0 12px;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--gb-label-color);
+      }
+      .assets-files {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        background: var(--crm-gray-50, #fafafa);
+        border: 1px solid var(--gb-table-border);
+        border-radius: 2px;
+        padding: 14px 18px;
+      }
+      .assets-files li {
+        margin: 4px 0;
+      }
+      .assets-files code {
+        background: var(--crm-white);
+        padding: 2px 6px;
+        border-radius: 2px;
+        border: 1px solid var(--gb-table-border);
+      }
+      .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+      }
+      .icon-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 16px 12px;
+        background: var(--crm-white);
+        border: 1px solid var(--gb-table-border);
+        border-radius: 2px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--crm-gray-700);
+      }
+      .icon-card svg {
+        width: 28px;
+        height: 28px;
+        color: var(--crm-gray-800);
+      }
+      .media-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        background: repeating-linear-gradient(
+          -45deg,
+          var(--crm-gray-50),
+          var(--crm-gray-50) 8px,
+          var(--crm-white) 8px,
+          var(--crm-white) 16px
+        );
+        border: 1px dashed var(--gb-table-border);
+        border-radius: 2px;
+        color: var(--crm-gray-600);
+        font-size: 14px;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: 24px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body class="gb-prototype">
+    <div class="header navbar navbar-fixed-top" role="banner">
+      <div class="header-inner">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown user">
+            <a class="dropdown-toggle" href="#" aria-expanded="false" aria-haspopup="true">
+              <span class="avatar" aria-hidden="true"></span>
+              <span class="username">Assets</span>
+              <b class="caret"></b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-container">
+      <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse" id="page-sidebar">
+          <div class="page-sidebar-toolbar">
+            <button type="button" class="sidebar-toggler" aria-controls="page-sidebar" aria-expanded="true" title="Recolher menu">
+              <span class="sidebar-toggler-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Alternar menu lateral</span>
+            </button>
+          </div>
+          <div class="slimScrollDiv">
+            <ul class="page-sidebar-menu">
+              <li class="start">
+                <a href="../index.html">
+                  <i class="menu-item-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                  </i>
+                  <span class="title" data-sidebar-label>Início</span>
+                </a>
+              </li>
+              <li class="start active">
+                <a href="index.html">
+                  <i class="menu-item-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+                      />
+                    </svg>
+                  </i>
+                  <span class="title" data-sidebar-label>Assets</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="segmentation-list-content">
+        <div class="page-content assets-max">
+          <h1 class="page-title">Biblioteca de assets</h1>
+          <nav class="page-breadcrumb" aria-label="Navegação em trilha">
+            <a href="../index.html" class="page-breadcrumb__home" aria-label="Início">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </a>
+            <span class="sep">›</span>
+            <span class="is-current" aria-current="page">Assets</span>
+          </nav>
+
+          <p class="assets-lead">
+            Referência dos ficheiros partilhados e amostras de ícones usados no shell. Coloque imagens exportadas em
+            <code>assets/media/</code> e referencie-as com <code>../media/nome.png</code> a partir desta página (ou
+            <code>assets/media/nome.png</code> a partir da raiz do site).
+          </p>
+
+          <section class="assets-block" aria-labelledby="af-files">
+            <h2 id="af-files">Ficheiros do projeto</h2>
+            <ul class="assets-files">
+              <li><code>assets/css/prototype-theme.css</code> — tema, componentes, tabelas, formulário</li>
+              <li><code>assets/js/prototype-sidebar.js</code> — menu lateral</li>
+              <li><code>assets/js/prototype-modal-stores.js</code> — modal de seleção (formulário)</li>
+              <li><code>assets/js/prototype-submenu.js</code> — submenu (preview menu)</li>
+              <li><code>assets/media/</code> — imagens e outros binários (pasta versionada)</li>
+            </ul>
+          </section>
+
+          <section class="assets-block" aria-labelledby="af-icons">
+            <h2 id="af-icons">Ícones (amostras inline SVG)</h2>
+            <p class="assets-lead" style="margin-bottom: 12px">
+              No protótipo a maior parte dos ícones está inline nos HTML. Estes são os mesmos padrões usados no menu e nas ações.
+            </p>
+            <div class="icon-grid" role="list">
+              <div class="icon-card" role="listitem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                <span>Início / home</span>
+              </div>
+              <div class="icon-card" role="listitem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                  />
+                </svg>
+                <span>Ver detalhes</span>
+              </div>
+              <div class="icon-card" role="listitem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+                  />
+                </svg>
+                <span>Grid / apps</span>
+              </div>
+              <div class="icon-card" role="listitem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+                <span>Busca</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="assets-block" aria-labelledby="af-media">
+            <h2 id="af-media">Imagens e media</h2>
+            <div class="media-placeholder">
+              A pasta <strong>media</strong> está pronta para PNG, JPG, SVG ou WebP.
+              <br />
+              Adicione ficheiros em <code>assets/media/</code> e atualize esta secção com <code>&lt;img&gt;</code> quando precisar.
+            </div>
+          </section>
+
+          <a class="back-link" href="../index.html">← Voltar ao índice das telas</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/prototype-sidebar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giftback Admin — protótipo (formulário / inputs)</title>
+    <link rel="stylesheet" href="assets/css/prototype-theme.css" />
+  </head>
+  <body class="gb-prototype">
+    <div class="header navbar navbar-fixed-top" role="banner">
+      <div class="header-inner">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown user">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              <span class="avatar" aria-hidden="true"></span>
+              <span class="username">Hugo Branco (Simples,Modulos)</span>
+              <b class="caret"></b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-container">
+      <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse" id="page-sidebar">
+          <div class="page-sidebar-toolbar">
+            <button type="button" class="sidebar-toggler" aria-controls="page-sidebar" aria-expanded="true" title="Recolher menu">
+              <span class="sidebar-toggler-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Alternar menu lateral</span>
+            </button>
+          </div>
+          <div class="slimScrollDiv">
+            <ul class="page-sidebar-menu">
+              <li class="start active">
+                <a href="/sistema/segmentador">
+                  <i class="menu-item-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                      />
+                    </svg>
+                  </i>
+                  <span class="title" data-sidebar-label>Segmentador</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="segmentation-add-content">
+        <div class="page-content">
+          <h1 class="page-title">Nova segmentação</h1>
+
+          <nav class="page-breadcrumb" aria-label="Navegação em trilha">
+            <a href="/sistema/dashboard" class="page-breadcrumb__home" aria-label="Início">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </a>
+            <span class="sep">›</span>
+            <a href="/sistema/dashboard">Tela Inicial</a>
+            <span class="sep">›</span>
+            <a href="/sistema/segmentador">Segmentador</a>
+            <span class="sep">›</span>
+            <span class="is-current" aria-current="page">Nova</span>
+          </nav>
+
+          <p class="prototype-processing-demo">
+            <button
+              type="button"
+              class="btn btn-default btn-sm"
+              id="btn-open-processing-modal"
+              aria-haspopup="dialog"
+              aria-controls="segmentationProcessingModal"
+            >
+              Abrir modal de processamento (demo)
+            </button>
+          </p>
+
+          <form id="SegmentationForm" action="#" method="post">
+            <section id="identification-section">
+              <h2 class="form-section-title">Dados de identificação</h2>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group has-feedback">
+                    <label for="segmentation-name">
+                      Nome da segmentação
+                      <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="segmentation-name"
+                      name="name"
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group has-feedback">
+                    <label for="marca">
+                      Marca
+                      <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <select id="marca" class="form-control" name="marca" required>
+                      <option value="" disabled selected>Selecione</option>
+                      <option value="adilsontestes">Adilsontestes</option>
+                      <option value="allos">Allos</option>
+                      <option value="arezzo-teste">Arezzo - Teste</option>
+                      <option value="arezzo-ads">AREZZO ADS</option>
+                      <option value="authentic-feet">AUTHENTIC FEET</option>
+                      <option value="autobem">AUTOBEM</option>
+                      <option value="azul">Azul Linhas Aéreas</option>
+                      <option value="blueman">BLUEMAN</option>
+                      <option value="bruna-tavares">Bruna Tavares</option>
+                      <option value="bycoders">Bycoders</option>
+                      <option value="cea">C&amp;A</option>
+                      <option value="carmen-steffens">Carmen Steffens</option>
+                      <option value="chilli-beans">CHILLI BEANS</option>
+                      <option value="dior">Christian Dior</option>
+                      <option value="ci">Ci</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div id="container_modal_select_stores_segmentation">
+                    <div
+                      id="select_stores_button_container_initial"
+                      class="select_stores_button_container initial-state"
+                    >
+                      <h3>Vamos selecionar as lojas da sua Segmentação</h3>
+                      <p>Defina quais unidades farão parte desta segmentação.</p>
+                      <button
+                        type="button"
+                        class="btn-select-stores"
+                        id="btn-open-modal-stores"
+                        aria-haspopup="dialog"
+                        aria-controls="modal_custom_segmentation"
+                      >
+                        Selecionar lojas
+                      </button>
+                    </div>
+
+                    <div
+                      id="modal_custom_segmentation"
+                      class="modal fade"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="modalSelectStoresTitle"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Fechar"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="modalSelectStoresTitle">Selecionar lojas</h4>
+                            <p class="modal-subtitle">
+                              Você pode selecionar as lojas pela busca ou filtrar do agrupamento do master.
+                            </p>
+                          </div>
+                          <div class="modal-body">
+                            <div class="modal-stores-toolbar">
+                              <div class="modal-stores-search">
+                                <span class="modal-stores-search__icon" aria-hidden="true">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                      d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                                    />
+                                  </svg>
+                                </span>
+                                <input
+                                  type="search"
+                                  class="form-control"
+                                  id="modal-stores-search"
+                                  placeholder="Buscar lojas"
+                                  autocomplete="off"
+                                />
+                              </div>
+                              <div class="modal-stores-filter">
+                                <label class="modal-stores-filter__label" for="modal-filter-master">Filtrar do Master</label>
+                                <select class="form-control" id="modal-filter-master" name="filterMaster">
+                                  <option value="">Selecione</option>
+                                  <option value="grp1">Agrupamento exemplo</option>
+                                </select>
+                              </div>
+                            </div>
+                            <p class="modal-stores-count" id="modal-stores-selection-count">0 lojas selecionadas</p>
+                            <div class="portlet box">
+                              <div class="portlet-body">
+                                <div id="table_custom_segmentation_wrapper">
+                                  <div class="row">
+                                    <div class="col-sm-12 table-body">
+                                      <div class="modal-stores-table-wrap">
+                                        <table id="table_custom_segmentation" class="modal-stores-table">
+                                          <thead>
+                                            <tr>
+                                              <th>
+                                                <span class="th-name">
+                                                  Nome
+                                                  <button
+                                                    type="button"
+                                                    class="btn-sort"
+                                                    title="Ordenar"
+                                                    aria-label="Ordenar por nome"
+                                                  >
+                                                    ⇅
+                                                  </button>
+                                                </span>
+                                              </th>
+                                              <th class="col-check">
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox checkbox--rounded"
+                                                    id="modal-select-all-stores"
+                                                    aria-label="Selecionar todos"
+                                                  />
+                                                </div>
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="odd">
+                                              <td>Lumina Tech - Unidade 01</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox"
+                                                    name="store"
+                                                    value="1"
+                                                    data-customer-id="101714"
+                                                    aria-label="Lumina Tech - Unidade 01"
+                                                  />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="even">
+                                              <td>Lumina Tech Alphaville</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox"
+                                                    name="store"
+                                                    value="2"
+                                                    data-customer-id="101715"
+                                                    aria-label="Lumina Tech Alphaville"
+                                                  />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="odd">
+                                              <td>Lumina Tech Bauru</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox"
+                                                    name="store"
+                                                    value="3"
+                                                    data-customer-id="101716"
+                                                    aria-label="Lumina Tech Bauru"
+                                                  />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="even">
+                                              <td>Lumina Tech Brooklin</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox"
+                                                    name="store"
+                                                    value="4"
+                                                    data-customer-id="101717"
+                                                    aria-label="Lumina Tech Brooklin"
+                                                  />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="odd">
+                                              <td>Lumina Tech Diadema</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox"
+                                                    name="store"
+                                                    value="5"
+                                                    data-customer-id="101718"
+                                                    aria-label="Lumina Tech Diadema"
+                                                  />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="even">
+                                              <td>Lumina Tech Guarulhos</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox"
+                                                    name="store"
+                                                    value="6"
+                                                    data-customer-id="101719"
+                                                    aria-label="Lumina Tech Guarulhos"
+                                                  />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <div class="row">
+                              <div class="col-sm-12 text-right p-0">
+                                <button
+                                  type="button"
+                                  class="btn btn-default"
+                                  id="cancel_stores_button"
+                                  data-dismiss="modal"
+                                >
+                                  Cancelar
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary"
+                                  id="save_stores_button"
+                                  data-dismiss="modal"
+                                >
+                                  Salvar
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <hr aria-hidden="true" />
+
+            <section id="filter-origin-action-section">
+              <h2 class="form-section-title" id="filter-origin-action-heading">
+                Filtrar por origem e ação
+              </h2>
+              <div class="row filter-origin-action-row">
+                <div class="col-xs-12">
+                  <div
+                    class="radio-inline-group"
+                    role="radiogroup"
+                    aria-labelledby="filter-origin-action-heading"
+                  >
+                    <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="filter_origin_action"
+                        value="any"
+                        class="radio"
+                        checked
+                      />
+                      Qualquer origem ou ação
+                    </label>
+                    <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="filter_origin_action"
+                        value="filter"
+                        class="radio"
+                      />
+                      Filtrar por origem e ação
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <hr aria-hidden="true" />
+
+            <section id="values-configuration-section">
+              <h2 class="form-section-title">Configuração de valores</h2>
+              <div class="row">
+                <div class="col-xs-8 col-sm-8 col-md-9">
+                  <div class="toggle-container">
+                    <label class="custom-toggle" for="toggle-define-min-example">
+                      <input
+                        type="checkbox"
+                        id="toggle-define-min-example"
+                        class="custom-toggle__input"
+                        role="switch"
+                        checked
+                        aria-checked="true"
+                      />
+                    </label>
+                    <label class="toggle-container__label" for="toggle-define-min-example">
+                      Definir valor mínimo
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="form-actions right">
+              <button type="button" class="btn btn-default">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Criar segmentação</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="segmentationProcessingModal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="segmentationProcessingTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="segmentationProcessingTitle">Processamento da segmentação</h4>
+            <p class="modal-subtitle">Acompanhe as etapas até a conclusão.</p>
+          </div>
+          <div class="modal-body">
+            <div class="segmentation-modal-details">
+              <dl class="segmentation-modal-details__grid">
+                <div class="segmentation-modal-details__pair">
+                  <dt class="segmentation-modal-details__label">Marca</dt>
+                  <dd class="segmentation-modal-details__value">Adilsontestes</dd>
+                </div>
+                <div class="segmentation-modal-details__pair">
+                  <dt class="segmentation-modal-details__label">Quantidade de lojas</dt>
+                  <dd class="segmentation-modal-details__value">16</dd>
+                </div>
+                <div class="segmentation-modal-details__pair">
+                  <dt class="segmentation-modal-details__label">Bônus</dt>
+                  <dd class="segmentation-modal-details__value">Vencido</dd>
+                </div>
+                <div class="segmentation-modal-details__pair">
+                  <dt class="segmentation-modal-details__label">Data de vencimento do bônus</dt>
+                  <dd class="segmentation-modal-details__value">05/04/2026 até 12/04/2026</dd>
+                </div>
+                <div class="segmentation-modal-details__pair">
+                  <dt class="segmentation-modal-details__label">Valor mín do bônus</dt>
+                  <dd class="segmentation-modal-details__value">R$ 100,00</dd>
+                </div>
+                <div class="segmentation-modal-details__pair">
+                  <dt class="segmentation-modal-details__label">Valor máx do bônus</dt>
+                  <dd class="segmentation-modal-details__value">-</dd>
+                </div>
+              </dl>
+            </div>
+            <p class="segmentation-modal-details__footer">
+              <a href="#" class="segmentation-modal-details__more">Ver mais detalhes</a>
+            </p>
+
+            <div class="segmentation-flow-vertical" data-current-step="0">
+              <div class="segmentation-flow-vertical__item is-active" data-step="0" aria-current="step">
+                <span class="segmentation-flow-vertical__dot" aria-hidden="true"></span>
+                <div class="segmentation-flow-vertical__body">
+                  <strong class="segmentation-flow-vertical__title">Calculando estimativa</strong>
+                  <p class="segmentation-flow-vertical__desc">
+                    Calculando a quantidade estimada de contatos para a segmentação.
+                  </p>
+                </div>
+              </div>
+              <div class="segmentation-flow-vertical__item is-pending" data-step="1">
+                <span class="segmentation-flow-vertical__dot" aria-hidden="true"></span>
+                <div class="segmentation-flow-vertical__body">
+                  <strong class="segmentation-flow-vertical__title">Pronto para processar</strong>
+                </div>
+              </div>
+              <div class="segmentation-flow-vertical__item is-pending" data-step="2">
+                <span class="segmentation-flow-vertical__dot" aria-hidden="true"></span>
+                <div class="segmentation-flow-vertical__body">
+                  <strong class="segmentation-flow-vertical__title">Processando</strong>
+                </div>
+              </div>
+              <div class="segmentation-flow-vertical__item is-pending" data-step="3">
+                <span class="segmentation-flow-vertical__dot" aria-hidden="true"></span>
+                <div class="segmentation-flow-vertical__body">
+                  <strong class="segmentation-flow-vertical__title">Concluído</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-stores-backdrop" class="modal-backdrop fade" aria-hidden="true"></div>
+
+    <script src="assets/js/prototype-sidebar.js"></script>
+    <script src="assets/js/prototype-modal-stores.js"></script>
+  </body>
+</html>

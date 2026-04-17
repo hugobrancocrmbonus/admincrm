@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giftback Admin — protótipo (design system · formulário)</title>
+    <link rel="stylesheet" href="assets/css/prototype-theme.css" />
+  </head>
+  <body class="gb-prototype">
+    <div class="header navbar navbar-fixed-top" role="banner">
+      <div class="header-inner">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown user">
+            <a class="dropdown-toggle" href="#" aria-expanded="false" aria-haspopup="true">
+              <span class="avatar" aria-hidden="true"></span>
+              <span class="username">Utilizador (demo)</span>
+              <b class="caret"></b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-container">
+      <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse" id="page-sidebar">
+          <div class="page-sidebar-toolbar">
+            <button type="button" class="sidebar-toggler" aria-controls="page-sidebar" aria-expanded="true" title="Recolher menu">
+              <span class="sidebar-toggler-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Alternar menu lateral</span>
+            </button>
+          </div>
+          <div class="slimScrollDiv">
+            <ul class="page-sidebar-menu">
+              <li class="start active">
+                <a href="./design-system-crud.html">
+                  <i class="menu-item-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+                      />
+                    </svg>
+                  </i>
+                  <span class="title" data-sidebar-label>Exemplos</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="design-system-form-content">
+        <div class="page-content">
+          <h1 class="page-title">Exemplo de formulário</h1>
+
+          <nav class="page-breadcrumb" aria-label="Navegação em trilha">
+            <a href="/sistema/dashboard" class="page-breadcrumb__home" aria-label="Início">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </a>
+            <span class="sep">›</span>
+            <a href="/sistema/dashboard">Tela inicial</a>
+            <span class="sep">›</span>
+            <a href="./design-system-crud.html">Exemplos</a>
+            <span class="sep">›</span>
+            <span class="is-current" aria-current="page">Novo</span>
+          </nav>
+
+          <p class="text-muted" style="margin: 0 0 20px; color: var(--crm-gray-600, #666); font-size: 14px">
+            Amostra de componentes de formulário alinhados ao tema do admin: campos, seleção em modal, rádios e interruptor.
+          </p>
+
+          <form id="DesignSystemForm" action="./design-system-crud.html" method="get">
+            <section id="identification-section">
+              <h2 class="form-section-title">Dados básicos</h2>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group has-feedback">
+                    <label for="example-name">
+                      Nome do exemplo
+                      <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="example-name" name="name" autocomplete="off" required />
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group has-feedback">
+                    <label for="example-category">
+                      Categoria
+                      <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <select id="example-category" class="form-control" name="category" required>
+                      <option value="" disabled selected>Selecione</option>
+                      <option value="a">Categoria A</option>
+                      <option value="b">Categoria B</option>
+                      <option value="c">Categoria C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div id="container_modal_select_stores_segmentation">
+                    <div id="select_stores_button_container_initial" class="select_stores_button_container initial-state">
+                      <h3>Associar itens</h3>
+                      <p>Escolha os registos que devem constar neste exemplo.</p>
+                      <button
+                        type="button"
+                        class="btn-select-stores"
+                        id="btn-open-modal-stores"
+                        aria-haspopup="dialog"
+                        aria-controls="modal_custom_segmentation"
+                      >
+                        Selecionar itens
+                      </button>
+                    </div>
+
+                    <div
+                      id="modal_custom_segmentation"
+                      class="modal fade"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="modalSelectStoresTitle"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="modalSelectStoresTitle">Selecionar itens</h4>
+                            <p class="modal-subtitle">Busque ou filtre para marcar as linhas desejadas.</p>
+                          </div>
+                          <div class="modal-body">
+                            <div class="modal-stores-toolbar">
+                              <div class="modal-stores-search">
+                                <span class="modal-stores-search__icon" aria-hidden="true">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                      d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                                    />
+                                  </svg>
+                                </span>
+                                <input type="search" class="form-control" id="modal-stores-search" placeholder="Buscar" autocomplete="off" />
+                              </div>
+                              <div class="modal-stores-filter">
+                                <label class="modal-stores-filter__label" for="modal-filter-master">Grupo</label>
+                                <select class="form-control" id="modal-filter-master" name="filterMaster">
+                                  <option value="">Todos</option>
+                                  <option value="grp1">Grupo 1</option>
+                                </select>
+                              </div>
+                            </div>
+                            <p class="modal-stores-count" id="modal-stores-selection-count" data-count-unit="item">0 itens selecionados</p>
+                            <div class="portlet box">
+                              <div class="portlet-body">
+                                <div id="table_custom_segmentation_wrapper">
+                                  <div class="row">
+                                    <div class="col-sm-12 table-body">
+                                      <div class="modal-stores-table-wrap">
+                                        <table id="table_custom_segmentation" class="modal-stores-table">
+                                          <thead>
+                                            <tr>
+                                              <th>
+                                                <span class="th-name">
+                                                  Nome
+                                                  <button type="button" class="btn-sort" title="Ordenar" aria-label="Ordenar por nome">⇅</button>
+                                                </span>
+                                              </th>
+                                              <th class="col-check">
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input
+                                                    type="checkbox"
+                                                    class="checkbox checkbox--rounded"
+                                                    id="modal-select-all-stores"
+                                                    aria-label="Selecionar todos"
+                                                  />
+                                                </div>
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="odd">
+                                              <td>Item Alpha</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input type="checkbox" class="checkbox" name="item" value="1" aria-label="Item Alpha" />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="even">
+                                              <td>Item Beta</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input type="checkbox" class="checkbox" name="item" value="2" aria-label="Item Beta" />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                            <tr class="odd">
+                                              <td>Item Gamma</td>
+                                              <td>
+                                                <div class="container-checkbox_actions_segmentation">
+                                                  <input type="checkbox" class="checkbox" name="item" value="3" aria-label="Item Gamma" />
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <div class="row">
+                              <div class="col-sm-12 text-right p-0">
+                                <button type="button" class="btn btn-default" id="cancel_stores_button" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" id="save_stores_button" data-dismiss="modal">Aplicar</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <hr aria-hidden="true" />
+
+            <section id="options-section">
+              <h2 class="form-section-title" id="options-heading">Comportamento</h2>
+              <div class="row filter-origin-action-row">
+                <div class="col-xs-12">
+                  <div class="radio-inline-group" role="radiogroup" aria-labelledby="options-heading">
+                    <label class="radio-inline">
+                      <input type="radio" name="visibility" value="all" class="radio" checked />
+                      Visível para todos
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="visibility" value="restricted" class="radio" />
+                      Restrito a perfis específicos
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="values-configuration-section">
+              <h2 class="form-section-title">Opções extras</h2>
+              <div class="row">
+                <div class="col-xs-8 col-sm-8 col-md-9">
+                  <div class="toggle-container">
+                    <label class="custom-toggle" for="toggle-feature-example">
+                      <input
+                        type="checkbox"
+                        id="toggle-feature-example"
+                        class="custom-toggle__input"
+                        role="switch"
+                        checked
+                        aria-checked="true"
+                      />
+                    </label>
+                    <label class="toggle-container__label" for="toggle-feature-example">Ativar notificações para este exemplo</label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="form-actions right">
+              <a href="./design-system-crud.html" class="btn btn-default">Cancelar</a>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-stores-backdrop" class="modal-backdrop fade" aria-hidden="true"></div>
+
+    <script src="assets/js/prototype-sidebar.js"></script>
+    <script src="assets/js/prototype-modal-stores.js"></script>
+  </body>
+</html>

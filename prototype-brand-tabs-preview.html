@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giftback Admin — protótipo (abas / nav-tabs)</title>
+    <link rel="stylesheet" href="assets/css/prototype-theme.css" />
+  </head>
+  <body class="gb-prototype">
+    <div class="header navbar navbar-fixed-top" role="banner">
+      <div class="header-inner">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown user">
+            <a
+              class="dropdown-toggle"
+              href="#"
+              data-toggle="dropdown"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span class="avatar" aria-hidden="true"></span>
+              <span class="username">Hugo Branco (Simples,Modulos)</span>
+              <b class="caret"></b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-container">
+      <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse" id="page-sidebar">
+          <div class="page-sidebar-toolbar">
+            <button
+              type="button"
+              class="sidebar-toggler"
+              aria-controls="page-sidebar"
+              aria-expanded="true"
+              title="Recolher menu"
+            >
+              <span class="sidebar-toggler-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Alternar menu lateral</span>
+            </button>
+          </div>
+          <div class="slimScrollDiv">
+            <ul class="page-sidebar-menu">
+              <li class="start active">
+                <a href="/sistema/marcas">
+                  <i class="menu-item-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+                      />
+                    </svg>
+                  </i>
+                  <span class="title" data-sidebar-label>Marcas</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content-wrapper">
+        <div id="brand-edit-content">
+          <div class="page-content">
+            <h1 class="page-title">Editar Marca</h1>
+
+            <nav class="page-breadcrumb" aria-label="Navegação em trilha">
+              <a href="/sistema/dashboard" class="page-breadcrumb__home" aria-label="Início">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+              </a>
+              <span class="sep">›</span>
+              <a href="/sistema/dashboard">Tela Inicial</a>
+              <span class="sep">›</span>
+              <a href="/sistema/marcas">Gerenciar Marcas</a>
+              <span class="sep">›</span>
+              <span class="is-current" aria-current="page">Editar Marca</span>
+            </nav>
+
+            <div class="row profile">
+              <div class="col-md-12">
+                <div class="tabbable tabbable-custom tabbable-full-width">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li class="active" role="presentation">
+                      <a
+                        id="tab-dados-marca"
+                        href="#tab_1_1"
+                        data-toggle="tab"
+                        role="tab"
+                        aria-selected="true"
+                        >Dados da Marca</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab_1_4" data-toggle="tab" role="tab" aria-selected="false">Submarcas</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-cfg-lojas" data-toggle="tab" role="tab" aria-selected="false">Configurações para Lojas</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-cfg-ads" data-toggle="tab" role="tab" aria-selected="false">Configurações CRMAds</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-users-auth" data-toggle="tab" role="tab" aria-selected="false">Users Auth</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-lojas-int" data-toggle="tab" role="tab" aria-selected="false">Lojas (integração)</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-reshop" data-toggle="tab" role="tab" aria-selected="false">Reshop</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="tab_1_1" class="tab-pane active" role="tabpanel" aria-labelledby="tab-dados-marca">
+                      <div class="form-group has-feedback">
+                        <label for="brand-logo">
+                          Logo
+                          <span class="required" aria-hidden="true">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="brand-logo" name="logo" autocomplete="off" />
+                      </div>
+                    </div>
+                    <div id="tab_1_4" class="tab-pane" role="tabpanel" aria-hidden="true">
+                      <p>Submarcas — conteúdo do protótipo.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/prototype-sidebar.js"></script>
+  </body>
+</html>
